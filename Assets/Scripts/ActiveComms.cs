@@ -17,21 +17,6 @@ public class ActiveComms : MonoBehaviour
         StartCoroutine(ScaleUpBars());
     }
     
-    private IEnumerator ChangeColor()
-    {
-        for (var i=0; i<bars.Length;i++)
-        {
-            bars[i].DOColor(Color.white, 1f);
-        }
-
-        yield return new WaitForSeconds(1f);
-        
-        for (var i=0; i<bars.Length;i++)
-        {
-            bars[i].DOColor(Color.grey, 1f);
-        }
-    }
-
     private IEnumerator ScaleUpBars()
     {
         var count = 0;
@@ -51,5 +36,20 @@ public class ActiveComms : MonoBehaviour
             count++;
         }
         thirdBar.DOScaleY(1, 0.5f/timeLimit);
+    }
+    
+    private IEnumerator ChangeColor()
+    {
+        for (var i=0; i<bars.Length;i++)
+        {
+            bars[i].DOColor(Color.white, 1f);
+        }
+
+        yield return new WaitForSeconds(1f);
+        
+        for (var i=0; i<bars.Length;i++)
+        {
+            bars[i].DOColor(Color.grey, 1f);
+        }
     }
 }
